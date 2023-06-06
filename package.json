@@ -1,0 +1,24 @@
+{
+  "name": "powerhooks",
+  "version": "1.0.0",
+  "description": "More powerful React hooks ",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/findzsh/usehooks.git"
+  },
+  "keywords": [
+    "React",
+    "hooks",
+    "useState"
+  ],
+  "author": "findzsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/findzsh/usehooks/issues"
+  },
+  "homepage": "https://github.com/findzsh/usehooks#readme"
+}
