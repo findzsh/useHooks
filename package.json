@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/findzsh/usehooks/issues"
   },
-  "homepage": "https://github.com/findzsh/usehooks#readme"
+  "homepage": "https://github.com/findzsh/usehooks#readme",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
 }
