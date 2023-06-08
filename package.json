@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1-beta",
   "description": "More powerful React hooks ",
   "main": "index.ts",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/findzsh/usehooks.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "React",
