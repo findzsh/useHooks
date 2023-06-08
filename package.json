@@ -2,8 +2,7 @@
   "name": "powerful-hooks",
   "version": "1.0.3",
   "description": "More powerful React hooks ",
-  "main": "index.ts",
-  "module": "/es/index.js",
+  "module": "es/index.js",
   "scripts": {
     "npm-build": "father-build"
   },
