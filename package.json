@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "More powerful React hooks ",
   "module": "es/index.js",
   "scripts": {
