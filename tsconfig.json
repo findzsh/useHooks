@@ -1,19 +1,22 @@
 {
     "compilerOptions": {
-        "target": "ES5",
-        "lib": [
-            "es6",
-            "esnext",
-            "dom"
-        ],
+        "target": "esnext",
+        "module": "esnext",
+        // "lib": [
+        //     "es6",
+        //     "esnext",
+        //     "dom"
+        // ],
+        "moduleResolution": "node",
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": false,
+        "esModuleInterop": true,
         "baseUrl": ".",
         "jsx": "react",
+        "declaration": true,
         "strictNullChecks": true,
-        // "paths": {
-        //     "@*": ["./src/*"]
-        // }
+        "paths": {
+            "@*": ["./src/*"]
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "More powerful React hooks ",
   "module": "es/index.js",
   "scripts": {
@@ -26,6 +26,9 @@
   "homepage": "https://github.com/findzsh/usehooks#readme",
   "dependencies": {
     "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.13.6",
