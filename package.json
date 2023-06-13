@@ -18,15 +18,19 @@
     "hooks",
     "useState"
   ],
+  "files":[
+    "dist",
+    "es",
+    "lib",
+    "package.json",
+    "README.md"
+   ],
   "author": "findzsh",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/findzsh/usehooks/issues"
   },
   "homepage": "https://github.com/findzsh/usehooks#readme",
-  "dependencies": {
-    "react": "^18.2.0"
-  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
