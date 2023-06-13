@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "More powerful React hooks ",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
@@ -19,15 +19,19 @@
     "hooks",
     "useState"
   ],
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "package.json",
+    "README.md"
+  ],
   "author": "findzsh",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/findzsh/usehooks/issues"
   },
   "homepage": "https://github.com/findzsh/usehooks#readme",
-  "dependencies": {
-    "react": "18.0.0"
-  },
   "peerDependencies": {
     "react": "^18.0.0"
   },
