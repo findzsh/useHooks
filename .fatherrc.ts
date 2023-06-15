@@ -1,9 +1,13 @@
 export default {
-  target: 'browser',
-  esm: 'babel',
-  cjs: 'babel',
+  // more father 4 config: https://github.com/umijs/father-next/blob/master/docs/config.md
+  esm: {
+    output: './es',
+  },
+  cjs: {
+    output: './lib',
+  },
   umd: {
-    minFile: true,
+    output: './dist',
     sourcemap: true,
   },
   extraBabelPlugins: [
