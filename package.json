@@ -23,7 +23,9 @@
   "keywords": [
     "React",
     "hooks",
-    "useState"
+    "useState",
+    "useMemoState",
+    "resetState"
   ],
   "files": [
     "dist",
