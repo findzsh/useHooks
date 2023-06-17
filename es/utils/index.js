@@ -1,4 +1,22 @@
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(obj) {
+  '@babel/helpers - typeof';
+  return (
+    (_typeof =
+      'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
+        ? function (obj) {
+            return typeof obj;
+          }
+        : function (obj) {
+            return obj &&
+              'function' == typeof Symbol &&
+              obj.constructor === Symbol &&
+              obj !== Symbol.prototype
+              ? 'symbol'
+              : typeof obj;
+          }),
+    _typeof(obj)
+  );
+}
 export var isObject = function isObject(value) {
   return value !== null && _typeof(value) === 'object' && !Array.isArray(value);
 };
@@ -47,3 +65,12 @@ export function isTypeSame(param1, param2) {
   }
   return same;
 }
+export var getType = function getType(value) {
+  if (isObject(value)) {
+    return 'object';
+  } else if (isArray(value)) {
+    return 'array';
+  } else {
+    return _typeof(value);
+  }
+};

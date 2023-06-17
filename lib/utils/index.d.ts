@@ -6,3 +6,15 @@ export declare const isBoolean: (value: unknown) => boolean;
 export declare const isNumber: (value: unknown) => boolean;
 export declare const isUndef: (value: unknown) => boolean;
 export declare function isTypeSame(param1: unknown, param2: unknown): boolean;
+export declare const getType: (
+  value: unknown,
+) =>
+  | 'string'
+  | 'number'
+  | 'bigint'
+  | 'boolean'
+  | 'symbol'
+  | 'undefined'
+  | 'object'
+  | 'function'
+  | 'array';

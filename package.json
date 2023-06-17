@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "More powerful React hooks ",
   "scripts": {
     "start": "dumi dev",
