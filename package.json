@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "More powerful React hooks ",
   "scripts": {
     "start": "dumi dev",
@@ -52,7 +52,7 @@
   "bugs": {
     "url": "https://github.com/findzsh/usehooks/issues"
   },
-  "homepage": "https://github.com/findzsh/usehooks#readme",
+  "homepage": "http://findzsh.com/",
   "peerDependencies": {
     "react": "^16.8.0 | ^17.0.0 | ^18.0.0"
   },
