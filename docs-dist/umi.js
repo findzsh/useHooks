@@ -5331,7 +5331,7 @@
                 o.a.createElement(
                   'li',
                   null,
-                  'state \u548c setState \u4f7f\u7528\u65b9\u6cd5\u540c\u539f\u751fhook\u3002',
+                  'state \u548c setState \u4f7f\u7528\u65b9\u6cd5\u540c\u539f\u751f hook\u3002',
                 ),
               ),
             ),
@@ -5374,21 +5374,21 @@
                     'tr',
                     null,
                     o.a.createElement('td', null, 'state'),
-                    o.a.createElement('td', null, '\u540c\u539f\u751fstate'),
+                    o.a.createElement('td', null, '\u540c\u539f\u751f state'),
                     o.a.createElement('td', null, 'any'),
                   ),
                   o.a.createElement(
                     'tr',
                     null,
                     o.a.createElement('td', null, 'setState'),
-                    o.a.createElement('td', null, '\u540c\u539f\u751fsetState'),
+                    o.a.createElement('td', null, '\u540c\u539f\u751f setState'),
                     o.a.createElement('td', null, '(newState:any)=>void'),
                   ),
                   o.a.createElement(
                     'tr',
                     null,
                     o.a.createElement('td', null, 'resetState'),
-                    o.a.createElement('td', null, '\u91cd\u7f6estate'),
+                    o.a.createElement('td', null, '\u91cd\u7f6e state'),
                     o.a.createElement('td', null, '(anyState?:any)=>void'),
                   ),
                 ),
@@ -7532,7 +7532,7 @@
               o.a.createElement(
                 'li',
                 null,
-                '\u8fd9\u662f\u4e00\u4e2a\u529f\u80fd\u66f4\u5f3a\u5927\u7684React state hooks\u3002',
+                '\u8fd9\u662f\u4e00\u4e2a\u529f\u80fd\u66f4\u5f3a\u5927\u7684 React state hooks\u3002',
               ),
               o.a.createElement(
                 'li',
@@ -15035,12 +15035,12 @@
                 o.a.createElement(
                   'li',
                   null,
-                  '\u540c\u65f6\uff0cuseSetState\u4e5f\u652f\u6301\u91cd\u7f6estate\u3002',
+                  '\u540c\u65f6\uff0cuseSetState \u4e5f\u652f\u6301\u91cd\u7f6e state\u3002',
                 ),
                 o.a.createElement(
                   'li',
                   null,
-                  '\u5e76\u4e14\u4e0d\u4f1a\u9650\u5236\u4f20\u5165state\u7684\u7c7b\u578b\u3002\u5982\u679c\u4f20\u5165\u4e0d\u662f\u5bf9\u8c61\uff0c\u5219\u4f7f\u7528\u4e0a\u548c\u539f\u59cbuseState\u76f8\u540c\uff0c\u5e76\u4fdd\u7559\u4e86\u91cd\u7f6e\u65b9\u6cd5\u3002',
+                  '\u5e76\u4e14\u4e0d\u4f1a\u9650\u5236\u4f20\u5165 state \u7684\u7c7b\u578b\u3002\u5982\u679c\u4f20\u5165\u4e0d\u662f\u5bf9\u8c61\uff0c\u5219\u4f7f\u7528\u4e0a\u548c\u539f\u59cb useState \u76f8\u540c\uff0c\u5e76\u4fdd\u7559\u4e86\u91cd\u7f6e\u65b9\u6cd5\u3002',
                 ),
               ),
             ),
@@ -15088,21 +15088,21 @@
                     'tr',
                     null,
                     o.a.createElement('td', null, 'state'),
-                    o.a.createElement('td', null, '\u540c\u7c7b\u7ec4\u4ef6state'),
+                    o.a.createElement('td', null, '\u540c\u7c7b\u7ec4\u4ef6 state'),
                     o.a.createElement('td', null, 'any'),
                   ),
                   o.a.createElement(
                     'tr',
                     null,
                     o.a.createElement('td', null, 'setState'),
-                    o.a.createElement('td', null, '\u540c\u7c7b\u7ec4\u4ef6setState'),
+                    o.a.createElement('td', null, '\u540c\u7c7b\u7ec4\u4ef6 setState'),
                     o.a.createElement('td', null, '(newState:any)=>void'),
                   ),
                   o.a.createElement(
                     'tr',
                     null,
                     o.a.createElement('td', null, 'resetState'),
-                    o.a.createElement('td', null, '\u91cd\u7f6estate'),
+                    o.a.createElement('td', null, '\u91cd\u7f6e state'),
                     o.a.createElement('td', null, '(anyState?:any)=>void'),
                   ),
                 ),
@@ -24527,13 +24527,13 @@
           previewerProps: {
             sources: {
               _: {
-                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd'\nimport { useMemoState } from 'powerful-hooks';\n\nexport default () => {\n    const [ state, setState, resetState ] = useMemoState({\n        initalValue:'I am inital value'\n    });\n\n    const handleChange =()=>{\n        setState({\n            changedValue:'initalValue has been changed'\n        });\n    };\n\n    const handleReset=()=>{\n        resetState();\n    };\n\n    const handleResetAndChange =()=>{\n        resetState({\n            initalValue:\"It's a new value\"\n        });\n    };\n\n    const handleResetAndAdd =()=>{\n        resetState({\n            antherValue:'I add a anther value'\n        })\n    };\n\n    return  <>\n        {JSON.stringify(state)}\n        <Button onClick={handleChange} >Change</Button>\n        <Button onClick={handleReset} >Reset</Button>\n        <Button onClick={handleResetAndChange} >ResetAndChange</Button>\n        <Button onClick={handleResetAndAdd} >ResetAndAdd</Button>\n    </>\n}\n",
+                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd';\nimport { useMemoState } from 'powerful-hooks';\n\nexport default () => {\n  const [state, setState, resetState] = useMemoState({\n    initalValue: 'I am inital value',\n  });\n\n  const handleChange = () => {\n    setState({\n      changedValue: 'initalValue has been changed',\n    });\n  };\n\n  const handleReset = () => {\n    resetState();\n  };\n\n  const handleResetAndChange = () => {\n    resetState({\n      initalValue: \"It's a new value\",\n    });\n  };\n\n  const handleResetAndAdd = () => {\n    resetState({\n      antherValue: 'I add a anther value',\n    });\n  };\n\n  return (\n    <>\n      {JSON.stringify(state)}\n      <Button onClick={handleChange}>Change</Button>\n      <Button onClick={handleReset}>Reset</Button>\n      <Button onClick={handleResetAndChange}>ResetAndChange</Button>\n      <Button onClick={handleResetAndAdd}>ResetAndAdd</Button>\n    </>\n  );\n};",
               },
             },
             dependencies: {
               react: { version: '^16.8.0 | ^17.0.0 | ^18.0.0' },
               antd: { version: '5.6.1' },
-              'powerful-hooks': { version: '1.0.13' },
+              'powerful-hooks': { version: '1.0.14' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'useMemoState-demo',
@@ -24607,13 +24607,13 @@
           previewerProps: {
             sources: {
               _: {
-                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd'\nimport { useSetState } from 'powerful-hooks';\n\nexport default () => {\n    const [ state, setState, resetState ] = useSetState({\n        initalValue1 :'I am inital value 1',\n        initalValue2 :'I am inital value 2',\n    });\n\n    const handleChange =()=>{\n        setState({\n            initalValue1:'initalValue1 has been changed'\n        });\n    };\n\n    const handleReset=()=>{\n        resetState();\n    };\n\n    const handleResetAndChange =()=>{\n        resetState({\n            initalValue2:\"It's a new value\"\n        });\n    };\n\n    const handleResetAndAdd =()=>{\n        resetState({\n            antherValue3:'I add an anther value 3'\n        })\n    };\n\n    return  <>\n        <h3>\u4f20\u5165state\u4e3a\u5bf9\u8c61\u5c5e\u6027</h3>\n        <div>\n            <div>initalValue1 :{state.initalValue1}</div>\n            <div>initalValue2 :{state.initalValue2}</div> \n            <div>{\n                !!state.antherValue3 &&\n                <>antherValue3 :{state.antherValue3}</>\n            }</div> \n            <Button onClick={handleChange} >Change Value1</Button>\n            <Button onClick={handleReset} >Reset all</Button>\n            <Button onClick={handleResetAndChange} >Reset and change value2 </Button>\n            <Button onClick={handleResetAndAdd} >Reset and add value3</Button>\n        </div>\n    </>\n}\n",
+                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd';\nimport { useSetState } from 'powerful-hooks';\n\nexport default () => {\n  const [state, setState, resetState] = useSetState({\n    initalValue1: 'I am inital value 1',\n    initalValue2: 'I am inital value 2',\n  });\n\n  const handleChange = () => {\n    setState({\n      initalValue1: 'initalValue1 has been changed',\n    });\n  };\n\n  const handleReset = () => {\n    resetState();\n  };\n\n  const handleResetAndChange = () => {\n    resetState({\n      initalValue2: \"It's a new value\",\n    });\n  };\n\n  const handleResetAndAdd = () => {\n    resetState({\n      antherValue3: 'I add an anther value 3',\n    });\n  };\n\n  return (\n    <>\n      <h3>\u4f20\u5165state\u4e3a\u5bf9\u8c61\u5c5e\u6027</h3>\n      <div>\n        <div>initalValue1 :{state.initalValue1}</div>\n        <div>initalValue2 :{state.initalValue2}</div>\n        <div>{!!state.antherValue3 && <>antherValue3 :{state.antherValue3}</>}</div>\n        <Button onClick={handleChange}>Change Value1</Button>\n        <Button onClick={handleReset}>Reset all</Button>\n        <Button onClick={handleResetAndChange}>Reset and change value2 </Button>\n        <Button onClick={handleResetAndAdd}>Reset and add value3</Button>\n      </div>\n    </>\n  );\n};",
               },
             },
             dependencies: {
               react: { version: '^16.8.0 | ^17.0.0 | ^18.0.0' },
               antd: { version: '5.6.1' },
-              'powerful-hooks': { version: '1.0.13' },
+              'powerful-hooks': { version: '1.0.14' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'useSetState-demo',
@@ -24660,13 +24660,13 @@
           previewerProps: {
             sources: {
               _: {
-                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd'\nimport { useSetState } from 'powerful-hooks';\n\nexport default () => {\n    const [ state, setState, resetState ] = useSetState('inital value');\n\n    const handleChange =()=>{\n        setState('inital value has been changed');\n    };\n\n    const handleReset=()=>{\n        resetState();\n    };\n\n    return  <>\n        <h3>\u4f20\u5165state\u5c5e\u6027\u4e0d\u4e3a\u5bf9\u8c61</h3>\n        <div>\n            <div>state :{state}</div>\n            <Button onClick={handleChange} >Change value</Button>\n            <Button onClick={handleReset} >Reset</Button>\n        </div>\n    </>\n}\n",
+                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button } from 'antd';\nimport { useSetState } from 'powerful-hooks';\n\nexport default () => {\n  const [state, setState, resetState] = useSetState('inital value');\n\n  const handleChange = () => {\n    setState('inital value has been changed');\n  };\n\n  const handleReset = () => {\n    resetState();\n  };\n\n  return (\n    <>\n      <h3>\u4f20\u5165state\u5c5e\u6027\u4e0d\u4e3a\u5bf9\u8c61</h3>\n      <div>\n        <div>state :{state}</div>\n        <Button onClick={handleChange}>Change value</Button>\n        <Button onClick={handleReset}>Reset</Button>\n      </div>\n    </>\n  );\n};",
               },
             },
             dependencies: {
               react: { version: '^16.8.0 | ^17.0.0 | ^18.0.0' },
               antd: { version: '5.6.1' },
-              'powerful-hooks': { version: '1.0.13' },
+              'powerful-hooks': { version: '1.0.14' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'useSetState-demo-1',
@@ -109426,7 +109426,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"\u7b80\u4ecb","meta":{}},{"title":"StateHooks","path":"/state-hooks","meta":{},"children":[{"path":"/state-hooks/use-memo-state","title":"useMemoState","meta":{}},{"path":"/state-hooks/use-set-state","title":"useSetState","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"powerful-hooks","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/findzsh/usehooks","branch":"master"},"theme":{}}',
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"\u7b80\u4ecb","meta":{}},{"title":"StateHooks","path":"/state-hooks","meta":{},"children":[{"path":"/state-hooks/use-memo-state","title":"useMemoState","meta":{}},{"path":"/state-hooks/use-set-state","title":"useSetState","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"powerful-hooks","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/findzsh/usehooks","branch":"master"},"theme":{"footer":"<div>foote000r</div>"}}',
     );
   },
   qE6j: function (e, t, n) {
@@ -111304,7 +111304,7 @@
               exact: !0,
               meta: {
                 filePath: 'docs/index.md',
-                updatedTime: 1686836797e3,
+                updatedTime: 1687068387e3,
                 nav: { title: '\u7b80\u4ecb', order: 1 },
                 group: { title: '\u7b80\u4ecb', order: 1 },
                 slugs: [{ depth: 2, value: '\u7b80\u4ecb', heading: '\u7b80\u4ecb' }],
@@ -111318,7 +111318,7 @@
               exact: !0,
               meta: {
                 filePath: 'docs/stateHooks/useMemoState.md',
-                updatedTime: 1687066851421,
+                updatedTime: 1687068387e3,
                 slugs: [
                   { depth: 2, value: 'useMemoState', heading: 'usememostate' },
                   { depth: 3, value: 'API', heading: 'api' },
@@ -111335,7 +111335,7 @@
               exact: !0,
               meta: {
                 filePath: 'docs/stateHooks/useSetState.md',
-                updatedTime: 1687068219319,
+                updatedTime: 1687068387e3,
                 slugs: [
                   { depth: 2, value: 'useSetState', heading: 'usesetstate' },
                   { depth: 3, value: 'API', heading: 'api' },
