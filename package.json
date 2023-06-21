@@ -21,11 +21,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
-    "React",
+    "react",
+    "hook",
     "hooks",
+    "state",
     "useState",
     "useMemoState",
-    "resetState"
+    "resetState",
+    "powerful",
+    "powerful-hook",
+    "hook"
   ],
   "files": [
     "dist",
