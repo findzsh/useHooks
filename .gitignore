@@ -12,8 +12,10 @@ yarn-error.log
 yarn.lock
 
 # production
-# /es
-# /docs-dist
+/docs-dist
+/dist
+/es
+/lib
 
 # misc
 .DS_Store
