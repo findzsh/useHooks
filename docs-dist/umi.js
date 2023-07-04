@@ -21397,12 +21397,28 @@
               { className: '__dumi-default-layout-footer-beian' },
               a.a.createElement(
                 'a',
-                { href: 'https://beian.miit.gov.cn/' },
-                '\u4eacICP\u59072023016105\u53f7-1',
+                {
+                  href: 'https://www.beian.gov.cn/',
+                  target: '_blank',
+                  className: '__dumi-default-layout-footer-beian-link',
+                },
+                a.a.createElement('img', {
+                  src: 'https://www.beian.gov.cn/portal/download',
+                  className: '__dumi-default-layout-footer-beian-link-icon',
+                }),
+                a.a.createElement(
+                  'span',
+                  null,
+                  '\u4eac\u516c\u5b89\u7f51\u590711010502052889\u53f7',
+                ),
               ),
               a.a.createElement(
                 'a',
-                { href: 'https://www.beian.gov.cn/' },
+                {
+                  href: 'https://beian.miit.gov.cn/',
+                  target: '_blank',
+                  className: '__dumi-default-layout-footer-beian-link',
+                },
                 '\u4eacICP\u59072023016105\u53f7-1',
               ),
             ),

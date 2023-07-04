@@ -137,8 +137,24 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
           className="__dumi-default-layout-footer-beian"
           // dangerouslySetInnerHTML={{ __html: 'footttttter' }}
         >
-          <a href="https://beian.miit.gov.cn/">京ICP备2023016105号-1</a>
-          <a href="https://www.beian.gov.cn/">京ICP备2023016105号-1</a>
+          <a
+            href="https://www.beian.gov.cn/"
+            target="_blank"
+            className="__dumi-default-layout-footer-beian-link"
+          >
+            <img
+              src="https://www.beian.gov.cn/portal/download"
+              className="__dumi-default-layout-footer-beian-link-icon"
+            />
+            <span>京公安网备11010502052889号</span>
+          </a>
+          <a
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            className="__dumi-default-layout-footer-beian-link"
+          >
+            京ICP备2023016105号-1
+          </a>
         </div>
       </div>
     </div>
