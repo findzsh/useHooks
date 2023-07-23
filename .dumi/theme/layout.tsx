@@ -81,6 +81,7 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       data-show-slugs={String(showSlugs)}
       data-site-mode={isSiteMode}
       data-gapless={String(!!meta.gapless)}
+      style={{ position: 'relative' }}
       onClick={() => {
         setDarkSwitch(false);
         if (menuCollapsed) return;

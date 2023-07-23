@@ -44,7 +44,7 @@ function useGet<T>(params: {
     const { signal } = controller;
     return { signal, controller };
   };
-  const { current: run } = useRef(() => {
+  const { current: run } = useRef((newData: Record<string, number | string> | void) => {
     if (loadingRef.current) {
       return;
     }
@@ -55,7 +55,7 @@ function useGet<T>(params: {
     const { signal, controller } = handleNewController();
     fetchInstanse.current = controller;
     useFetch({
-      url: url + parseQueryParams(data),
+      url: url + parseQueryParams(Object.assign(Object.assign({}, data), newData)),
       options: {
         headers,
         handler,

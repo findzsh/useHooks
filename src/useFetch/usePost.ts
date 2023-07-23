@@ -2,20 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import useFetch from './useFetch';
 import * as _ from 'lodash';
 
-function parseQueryParams(data) {
-  let queryStr = '';
-  if (data) {
-    queryStr += '?';
-    for (let p in data) {
-      if (data[p] != null) {
-        queryStr += encodeURIComponent(p) + '=' + encodeURIComponent(data[p]) + '&';
-      }
-    }
-  }
-  queryStr = queryStr.slice(0, queryStr.length - 1);
-  return queryStr;
-}
-
 function usePost<T>(
   params: {
     url: string;
@@ -48,7 +34,7 @@ function usePost<T>(
     const { signal } = controller;
     return { signal, controller };
   };
-  const { current: run } = useRef(() => {
+  const { current: run } = useRef((newData: Record<string, any> | void) => {
     if (loadingRef.current) {
       return;
     }
@@ -66,16 +52,17 @@ function usePost<T>(
       credentials: 'include',
       signal,
     };
-    if (data) {
-      if (data.isform) {
+    let _data = Object.assign(Object.assign({}, data), newData);
+    if (_data && Object.entries(_data).length) {
+      if (_data.isform) {
         options.body = '';
-        options.data = data;
+        options.data = _data;
         options.headers = {
           ...headers,
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         };
       } else {
-        options.body = JSON.stringify(_.has(data, 'isform') ? _.omit(data, 'isform') : data);
+        options.body = JSON.stringify(_.has(_data, 'isform') ? _.omit(_data, 'isform') : _data);
         options.headers = {
           ...headers,
           'Content-Type': 'application/json',
@@ -83,7 +70,7 @@ function usePost<T>(
       }
     }
     useFetch({
-      url: url + parseQueryParams(data),
+      url,
       options,
     });
   });
