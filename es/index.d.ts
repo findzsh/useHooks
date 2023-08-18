@@ -6,3 +6,5 @@ export { default as useGet } from './useFetch/useGet';
 export { default as usePost } from './useFetch/usePost';
 export { default as usePut } from './useFetch/usePut';
 export { default as useDelete } from './useFetch/useDelete';
+export { default as useUpdate } from './useUpdate';
+export { default as useUrlQuery } from './useUrlQuery';
