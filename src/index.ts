@@ -8,3 +8,5 @@ export { default as usePut } from './useFetch/usePut';
 export { default as useDelete } from './useFetch/useDelete';
 export { default as useUpdate } from './useUpdate';
 export { default as useUrlQuery } from './useUrlQuery';
+export { default as useDebounceFn } from './useDebounceFn';
+export { default as useThrottleFn } from './useThrottleFn';
