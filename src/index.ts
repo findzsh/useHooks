@@ -10,3 +10,5 @@ export { default as useUpdate } from './useUpdate';
 export { default as useUrlQuery } from './useUrlQuery';
 export { default as useDebounceFn } from './useDebounceFn';
 export { default as useThrottleFn } from './useThrottleFn';
+export { default as useDebounceState } from './useDebounceState';
+export { default as useThrottleState } from './useThrottleState';

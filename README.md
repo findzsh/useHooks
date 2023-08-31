@@ -53,3 +53,17 @@ import { useThrottleFn } from 'powerful-hooks';
 
 const throttleFn = useThrottleFn(fn, wait);
 ```
+
+```ts
+// 防抖state
+import { useDebounceState } from 'powerful-hooks';
+
+const [state, setState] = useDebounceState(initialValue, wait);
+```
+
+```ts
+// 节流state
+import { useThrottleState } from 'powerful-hooks';
+
+const [state, setState] = useThrottleState(initialValue, wait);
+```
