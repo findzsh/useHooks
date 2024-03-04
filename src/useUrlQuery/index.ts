@@ -2,7 +2,7 @@
 import { useRef } from 'react';
 
 export default function index(Url?: string) {
-  const url = Url ? Url : window.location.search;
+  const url = Url ? Url : window.location.hash ? window.location.hash : window.location.search;
   const query = new URLSearchParams(url);
 
   const { current: getQueryString } = useRef(function (name: string) {
