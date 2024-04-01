@@ -2088,7 +2088,7 @@
       },
       V = W;
     function K(e) {
-      var t = e || window.location.search,
+      var t = e || (window.location.hash ? window.location.hash : window.location.search),
         n = new URLSearchParams(t),
         r = Object(o['useRef'])(function (e) {
           var n = new RegExp('(^|&)'.concat(e, '=([^&]*)(&|$)'), 'i'),
@@ -2121,42 +2121,58 @@
         u = l.current;
       return { get: c, getAll: u };
     }
-    var U = (e, t) => {
-        var n,
-          r = null !== t && void 0 !== t ? t : 300,
-          a = Object(o['useRef'])(() => {
-            clearTimeout(n);
-          }),
-          i = a.current,
-          c = Object(o['useRef'])(function () {
-            for (var t = arguments.length, o = new Array(t), a = 0; a < t; a++) o[a] = arguments[a];
-            i(),
-              (n = setTimeout(() => {
-                e(...o), i();
-              }, r));
-          }),
-          l = c.current;
-        return l;
-      },
-      G = U,
-      X = (e, t) => {
-        var n,
-          r = Object(o['useRef'])(!1),
+    var U = (e, t, n) => {
+        var r,
           a = null !== t && void 0 !== t ? t : 300,
           i = Object(o['useRef'])(() => {
-            clearTimeout(n);
+            clearTimeout(r), (r = 0);
           }),
           c = i.current,
           l = Object(o['useRef'])(function () {
-            for (var t = arguments.length, o = new Array(t), i = 0; i < t; i++) o[i] = arguments[i];
-            r.current ||
-              ((r.current = !0),
-              (n = setTimeout(() => {
-                e(...o), (r.current = !1), c();
+            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++) n[o] = arguments[o];
+            c(),
+              (r = setTimeout(() => {
+                e(...n), c();
+              }, a));
+          }),
+          u = l.current,
+          s = Object(o['useRef'])(function () {
+            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++) n[o] = arguments[o];
+            c(),
+              r
+                ? (r = setTimeout(() => {
+                    e(...n), c();
+                  }, a))
+                : (e(...n), (r = setTimeout(c, a)));
+          }),
+          d = s.current;
+        return n ? d : u;
+      },
+      G = U,
+      X = (e, t, n) => {
+        var r,
+          a = null !== t && void 0 !== t ? t : 300,
+          i = Object(o['useRef'])(() => {
+            clearTimeout(r), (r = 0);
+          }),
+          c = i.current,
+          l = Object(o['useRef'])(function () {
+            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++) n[o] = arguments[o];
+            r ||
+              (r = setTimeout(() => {
+                e(...n), c();
+              }, a));
+          }),
+          u = l.current,
+          s = Object(o['useRef'])(function () {
+            r ||
+              (e(...arguments),
+              (r = setTimeout(() => {
+                c();
               }, a)));
           }),
-          u = l.current;
-        return u;
+          d = s.current;
+        return n ? d : u;
       },
       Y = X,
       q = (e, t) => {
@@ -25514,6 +25530,17 @@
                     o.a.createElement(
                       'tr',
                       null,
+                      o.a.createElement('td', null, '\u53c2\u6570 3'),
+                      o.a.createElement(
+                        'td',
+                        null,
+                        'immediately ,\u662f\u5426\u7acb\u5373\u6267\u884c\uff0c\u9ed8\u8ba4false',
+                      ),
+                      o.a.createElement('td', null, 'boolean'),
+                    ),
+                    o.a.createElement(
+                      'tr',
+                      null,
                       o.a.createElement('td', null, '\u8fd4\u56de\u51fd\u6570'),
                       o.a.createElement('td', null, '\u9632\u6296\u51fd\u6570'),
                       o.a.createElement('td', null, 'function'),
@@ -33506,6 +33533,118 @@
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'useThrottleState-demo',
+          },
+        },
+        'useUrlQuery-demo': {
+          component: function () {
+            var e = n('3PQu')['default'],
+              t = n('K+nK')['default'],
+              r = t(n('tJVT')),
+              o = e(n('q1tI')),
+              a = n('gdfu'),
+              i = n('/7QA'),
+              c = function () {
+                var e = (0, o.useState)(''),
+                  t = (0, r['default'])(e, 2),
+                  n = t[0],
+                  c = t[1],
+                  l = (0, o.useState)(''),
+                  u = (0, r['default'])(l, 2),
+                  s = u[0],
+                  d = u[1],
+                  f = (0, i.useUrlQuery)(),
+                  p = f.get,
+                  b = f.getAll,
+                  m = (0, i.useUrlQuery)(),
+                  h = m.getAll,
+                  v = function () {
+                    var e = p('name');
+                    c(e);
+                  },
+                  g = function () {
+                    var e = b();
+                    c(JSON.stringify(e));
+                  },
+                  y = function (e) {
+                    var t;
+                    d(
+                      null === e || void 0 === e || null === (t = e.target) || void 0 === t
+                        ? void 0
+                        : t.value,
+                    );
+                  },
+                  O = function () {
+                    var e = h();
+                    c(JSON.stringify(e));
+                  };
+                return (
+                  (0, o.useEffect)(function () {
+                    window.history.replaceState(
+                      {},
+                      null,
+                      window.location.pathname + '?name=powerfulHooks&id=101123',
+                    );
+                  }, []),
+                  o['default'].createElement(
+                    'div',
+                    null,
+                    o['default'].createElement('div', null, '\u53c2\u6570\uff1a', n),
+                    o['default'].createElement(
+                      'div',
+                      null,
+                      o['default'].createElement(
+                        a.Button,
+                        { onClick: v },
+                        '\u70b9\u51fb\u83b7\u53d6url\u4e2d\u7684name\u53c2\u6570',
+                      ),
+                      o['default'].createElement(
+                        a.Button,
+                        { onClick: g },
+                        '\u70b9\u51fb\u83b7\u53d6url\u4e2d\u6240\u6709\u53c2\u6570',
+                      ),
+                    ),
+                    o['default'].createElement(
+                      'div',
+                      null,
+                      '\u624b\u52a8\u8f93\u5165url\u5730\u5740',
+                    ),
+                    o['default'].createElement(
+                      'div',
+                      null,
+                      o['default'].createElement(a.Input, {
+                        value: s,
+                        onChange: y,
+                        placeholder:
+                          '\u8bf7\u8f93\u5165\u5e26\u6709query\u53c2\u6570\u7684url\u5730\u5740',
+                      }),
+                    ),
+                    o['default'].createElement(
+                      'div',
+                      null,
+                      o['default'].createElement(
+                        a.Button,
+                        { onClick: O },
+                        '\u70b9\u51fb\u83b7\u53d6url\u4e2d\u6240\u6709\u53c2\u6570',
+                      ),
+                    ),
+                  )
+                );
+              };
+            return o['default'].createElement(c);
+          },
+          previewerProps: {
+            sources: {
+              _: {
+                tsx: "import React, { useEffect, useState, useRef } from 'react';\nimport { Button, Input } from 'antd';\nimport { useUrlQuery } from 'powerful-hooks';\n\nexport default () => {\n  const [state, setState] = useState('');\n  const [url, setUrl] = useState('');\n  const { get, getAll } = useUrlQuery();\n  const { getAll: customUrlGetAll } = useUrlQuery();\n\n  const handleGetQuery = () => {\n    let query = get('name');\n    setState(query);\n  };\n\n  const handleGetAllQuery = () => {\n    let query = getAll();\n    setState(JSON.stringify(query));\n  };\n\n  const handleChange = (e) => {\n    setUrl(e?.target?.value);\n  };\n\n  const handleCustomGetAllQuery = () => {\n    let query = customUrlGetAll();\n    setState(JSON.stringify(query));\n  };\n\n  useEffect(() => {\n    window.history.replaceState(\n      {},\n      null,\n      window.location.pathname + '?name=powerfulHooks&id=101123',\n    );\n  }, []);\n\n  return (\n    <div>\n      <div>\u53c2\u6570\uff1a{state}</div>\n      <div>\n        <Button onClick={handleGetQuery}>\u70b9\u51fb\u83b7\u53d6url\u4e2d\u7684name\u53c2\u6570</Button>\n        <Button onClick={handleGetAllQuery}>\u70b9\u51fb\u83b7\u53d6url\u4e2d\u6240\u6709\u53c2\u6570</Button>\n      </div>\n      <div>\u624b\u52a8\u8f93\u5165url\u5730\u5740</div>\n      <div>\n        <Input\n          value={url}\n          onChange={handleChange}\n          placeholder=\"\u8bf7\u8f93\u5165\u5e26\u6709query\u53c2\u6570\u7684url\u5730\u5740\"\n        ></Input>\n      </div>\n      <div>\n        <Button onClick={handleCustomGetAllQuery}>\u70b9\u51fb\u83b7\u53d6url\u4e2d\u6240\u6709\u53c2\u6570</Button>\n      </div>\n    </div>\n  );\n};",
+              },
+            },
+            dependencies: {
+              react: { version: '^16.8.0 | ^17.0.0 | ^18.0.0' },
+              antd: { version: '5.6.1' },
+              'powerful-hooks': { version: '1.1.3' },
+              'react-dom': { version: '>=16.9.0' },
+            },
+            identifier: 'useUrlQuery-demo',
           },
         },
       },
@@ -109363,7 +109502,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"\u7b80\u4ecb","meta":{}},{"title":"EffectHooks","path":"/effect-hooks","meta":{},"children":[{"path":"/effect-hooks/use-debounce-fn","title":"useDebounceFn","meta":{}},{"path":"/effect-hooks/use-throttle-fn","title":"useThrottleFn","meta":{}}]},{"title":"FetchHooks","path":"/fetch-hooks","meta":{},"children":[{"path":"/fetch-hooks/fetch-provider","title":"FetchProvider","meta":{}},{"path":"/fetch-hooks/use-get","title":"useGet","meta":{}},{"path":"/fetch-hooks/use-post","title":"usePost","meta":{}}]},{"title":"StateHooks","path":"/state-hooks","meta":{},"children":[{"path":"/state-hooks/use-debounce-state","title":"useDebounceState","meta":{}},{"path":"/state-hooks/use-memo-state","title":"useMemoState","meta":{}},{"path":"/state-hooks/use-set-state","title":"useSetState","meta":{}},{"path":"/state-hooks/use-throttle-state","title":"useThrottleState","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"powerful-hooks","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/findzsh/usehooks","branch":"master"},"theme":{"footer":"<div>foote000r</div>"}}',
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"\u7b80\u4ecb","meta":{}},{"title":"EffectHooks","path":"/effect-hooks","meta":{},"children":[{"path":"/effect-hooks/use-debounce-fn","title":"useDebounceFn","meta":{}},{"path":"/effect-hooks/use-throttle-fn","title":"useThrottleFn","meta":{}}]},{"title":"FetchHooks","path":"/fetch-hooks","meta":{},"children":[{"path":"/fetch-hooks/fetch-provider","title":"FetchProvider","meta":{}},{"path":"/fetch-hooks/use-get","title":"useGet","meta":{}},{"path":"/fetch-hooks/use-post","title":"usePost","meta":{}}]},{"title":"StateHooks","path":"/state-hooks","meta":{},"children":[{"path":"/state-hooks/use-debounce-state","title":"useDebounceState","meta":{}},{"path":"/state-hooks/use-memo-state","title":"useMemoState","meta":{}},{"path":"/state-hooks/use-set-state","title":"useSetState","meta":{}},{"path":"/state-hooks/use-throttle-state","title":"useThrottleState","meta":{}},{"path":"/state-hooks/use-url-query","title":"useUrlQuery","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"powerful-hooks","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/findzsh/usehooks","branch":"master"},"theme":{"footer":"<div>foote000r</div>"}}',
     );
   },
   qHiR: function (e, t, n) {},
@@ -111518,6 +111657,28 @@
               title: 'useThrottleState - powerful-hooks',
             },
             {
+              path: '/state-hooks/use-url-query',
+              component: n('u4Mz').default,
+              exact: !0,
+              meta: {
+                filePath: 'docs/stateHooks/useUrlQuery.md',
+                updatedTime: 1709562919e3,
+                slugs: [
+                  { depth: 2, value: 'useUrlQuery', heading: 'useurlquery' },
+                  {
+                    depth: 3,
+                    value: '\u83b7\u53d6\u8def\u7531\u5730\u5740\u4e2d\u7684 query \u53c2\u6570',
+                    heading: '\u83b7\u53d6\u8def\u7531\u5730\u5740\u4e2d\u7684-query-\u53c2\u6570',
+                  },
+                  { depth: 3, value: 'API', heading: 'api' },
+                ],
+                title: 'useUrlQuery',
+                hasPreviewer: !0,
+                group: { path: '/state-hooks', title: 'StateHooks' },
+              },
+              title: 'useUrlQuery - powerful-hooks',
+            },
+            {
               path: '/effect-hooks',
               meta: {},
               exact: !0,
@@ -112264,6 +112425,136 @@
       every: u(4),
       find: u(5),
       findIndex: u(6),
+    };
+  },
+  u4Mz: function (e, t, n) {
+    'use strict';
+    n.r(t);
+    var r = n('q1tI'),
+      o = n.n(r),
+      a = n('dEAq'),
+      i = (n('N0lm'), n('0H/f'), n('DgDr'), n('cGlH'), n('ekZX')),
+      c = (n('Bjia'), n('tVxl')),
+      l =
+        (n('1pSt'),
+        o.a.memo((e) => {
+          var t = e.demos,
+            n = t['useUrlQuery-demo'].component;
+          return o.a.createElement(
+            o.a.Fragment,
+            null,
+            o.a.createElement(
+              o.a.Fragment,
+              null,
+              o.a.createElement(
+                'div',
+                { className: 'markdown' },
+                o.a.createElement(
+                  'h2',
+                  { id: 'useurlquery' },
+                  o.a.createElement(
+                    a['AnchorLink'],
+                    { to: '#useurlquery', 'aria-hidden': 'true', tabIndex: -1 },
+                    o.a.createElement('span', { className: 'icon icon-link' }),
+                  ),
+                  'useUrlQuery',
+                ),
+                o.a.createElement(
+                  'h3',
+                  { id: '\u83b7\u53d6\u8def\u7531\u5730\u5740\u4e2d\u7684-query-\u53c2\u6570' },
+                  o.a.createElement(
+                    a['AnchorLink'],
+                    {
+                      to: '#\u83b7\u53d6\u8def\u7531\u5730\u5740\u4e2d\u7684-query-\u53c2\u6570',
+                      'aria-hidden': 'true',
+                      tabIndex: -1,
+                    },
+                    o.a.createElement('span', { className: 'icon icon-link' }),
+                  ),
+                  '\u83b7\u53d6\u8def\u7531\u5730\u5740\u4e2d\u7684 query \u53c2\u6570',
+                ),
+                o.a.createElement(
+                  'ul',
+                  null,
+                  o.a.createElement(
+                    'li',
+                    null,
+                    '\u53ef\u4ee5\u5355\u4e2a\u83b7\u53d6\u4e5f\u53ef\u4ee5\u4e00\u6b21\u83b7\u53d6\u5168\u90e8\u3002',
+                  ),
+                  o.a.createElement(
+                    'li',
+                    null,
+                    '\u540c\u65f6\u652f\u6301\u4f20\u5165 url\u3002\u9ed8\u8ba4\u53d6\u5f53\u524d url\u3002',
+                  ),
+                ),
+              ),
+              o.a.createElement(
+                i['default'],
+                t['useUrlQuery-demo'].previewerProps,
+                o.a.createElement(n, null),
+              ),
+              o.a.createElement(
+                'div',
+                { className: 'markdown' },
+                o.a.createElement(
+                  'h3',
+                  { id: 'api' },
+                  o.a.createElement(
+                    a['AnchorLink'],
+                    { to: '#api', 'aria-hidden': 'true', tabIndex: -1 },
+                    o.a.createElement('span', { className: 'icon icon-link' }),
+                  ),
+                  'API',
+                ),
+                o.a.createElement(
+                  c['a'],
+                  null,
+                  o.a.createElement(
+                    'thead',
+                    null,
+                    o.a.createElement(
+                      'tr',
+                      null,
+                      o.a.createElement('th', null, '\u53c2\u6570'),
+                      o.a.createElement('th', null, '\u8bf4\u660e'),
+                      o.a.createElement('th', null, '\u7c7b\u578b'),
+                    ),
+                  ),
+                  o.a.createElement(
+                    'tbody',
+                    null,
+                    o.a.createElement(
+                      'tr',
+                      null,
+                      o.a.createElement('td', null, '\u53c2\u6570 1'),
+                      o.a.createElement(
+                        'td',
+                        null,
+                        '\u53ef\u9009\u3002\u624b\u52a8\u8f93\u5165\u7684 url \u5730\u5740\u3002',
+                      ),
+                      o.a.createElement('td', null, 'string'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }));
+    t['default'] = (e) => {
+      var t = o.a.useContext(a['context']),
+        n = t.demos;
+      return (
+        o.a.useEffect(() => {
+          var t;
+          null !== e &&
+            void 0 !== e &&
+            null !== (t = e.location) &&
+            void 0 !== t &&
+            t.hash &&
+            a['AnchorLink'].scrollToAnchor(decodeURIComponent(e.location.hash.slice(1)));
+        }, []),
+        o.a.createElement(l, { demos: n })
+      );
     };
   },
   u6e6: function (e, t, n) {
@@ -115783,6 +116074,17 @@
                         '\u8282\u6d41\u65f6\u95f4\uff0c \u5fc5\u987b\u5927\u4e8e 0\uff0c \u9ed8\u8ba4 300ms',
                       ),
                       o.a.createElement('td', null, 'number'),
+                    ),
+                    o.a.createElement(
+                      'tr',
+                      null,
+                      o.a.createElement('td', null, '\u53c2\u6570 3'),
+                      o.a.createElement(
+                        'td',
+                        null,
+                        'immediately ,\u662f\u5426\u7acb\u5373\u6267\u884c\uff0c\u9ed8\u8ba4false',
+                      ),
+                      o.a.createElement('td', null, 'boolean'),
                     ),
                     o.a.createElement(
                       'tr',
