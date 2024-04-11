@@ -1,6 +1,6 @@
 import React from 'react';
 import type { PropsWithChildren } from 'react';
-import Bus from './bus';
+import BusClass from './bus';
 
 interface FetchProviderProps extends PropsWithChildren {
   successCode?: number;
@@ -14,6 +14,8 @@ interface FetchProviderProps extends PropsWithChildren {
 }
 
 function FetchProvider(props: FetchProviderProps) {
+  let Bus = new BusClass();
+
   if (props.statusHandler) {
     Bus.changeStatusHandler(props.statusHandler);
   }

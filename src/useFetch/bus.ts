@@ -1,6 +1,16 @@
 import { message } from 'antd';
 
+let interf: any = null;
+
 class fetchBus {
+  constructor() {
+    if (interf != null) {
+      return interf;
+    } else {
+      interf = this;
+    }
+  }
+
   // 成功code
   successCode: number = 0;
   // 状态处理函数
@@ -46,4 +56,4 @@ class fetchBus {
   };
 }
 
-export default new fetchBus();
+export default fetchBus;
