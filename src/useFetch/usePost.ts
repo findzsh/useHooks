@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import useFetch from './useFetch';
 import * as _ from 'lodash';
 
@@ -75,6 +75,10 @@ function usePost<T>(
     });
   });
 
+  const handleAbort = useCallback(()=>{
+    fetchInstanse.current?.abort();
+  },[fetchInstanse.current])
+
   useEffect(() => {
     const { manual = false } = params;
     if (!manual) {
@@ -90,6 +94,7 @@ function usePost<T>(
     data: responens,
     loading,
     run,
+    abort:handleAbort
   };
 }
 

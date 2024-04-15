@@ -22,7 +22,7 @@ ReactDOM.render(
             headers={{
                 'X-Auth-Token': ()=>localStorage.getItem("X-Auth-Token")
             }}
-            responesField:{{
+            responesField={{
                 code:'code',
                 data:'data',
                 msg:'msg'

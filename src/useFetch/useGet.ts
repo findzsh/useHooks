@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import useFetch from './useFetch';
 
 function parseQueryParams(data) {
@@ -67,6 +67,10 @@ function useGet<T>(params: {
     });
   });
 
+  const handleAbort = useCallback(()=>{
+    fetchInstanse.current?.abort();
+  },[fetchInstanse.current])
+
   useEffect(() => {
     const { manual = false } = params;
     if (!manual) {
@@ -82,6 +86,7 @@ function useGet<T>(params: {
     data: responens,
     loading,
     run,
+    abort: handleAbort
   };
 }
 

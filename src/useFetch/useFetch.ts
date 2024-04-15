@@ -1,6 +1,8 @@
 import { message } from 'antd';
-import fetchBus from './bus';
+import BusClass from './bus';
 import { isFunction } from '../utils';
+
+let fetchBus = new BusClass();
 
 function Response(code, msg, data) {
   this[fetchBus.responesField.code] = code != null ? code : null;
@@ -32,6 +34,7 @@ const handleResponse = function (response, handler) {
           treated = true;
           if (_res) {
             result = _res;
+            break;
           }
         }
       }

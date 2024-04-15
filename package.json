@@ -1,25 +1,40 @@
 {
   "name": "powerful-hooks",
-  "version": "1.1.4",
-  "description": "More powerful React hooks ",
+  "version": "1.1.15",
+  "description": "More powerful React Hooks",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "dumi dev",
-    "docs:build": "dumi build",
-    "docs:deploy": "gh-pages -d docs-dist",
+    "start": "npm run dev",
+    "dev": "dumi dev",
     "build": "father build",
-    "deploy": "npm run docs:build && npm run docs:deploy",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage",
-    "prepublishOnly": "npm run build"
+    "build:watch": "father dev",
+    "docs:build": "dumi build",
+    "prepare": "husky install && dumi setup",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepublishOnly": "father doctor && npm run build"
   },
+  "authors": [
+    "findzsh"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/findzsh/usehooks.git"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "bugs": {
+    "url": "https://github.com/findzsh/usehooks/issues"
+  },
+  "homepage": "http://findzsh.com/",
   "keywords": [
     "react",
     "hook",
@@ -39,44 +54,53 @@
     "package.json",
     "README.md"
   ],
-  "module": "./es/index.js",
-  "typings": "./es/index.d.ts",
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix",
       "prettier --write"
     ],
-    "*.ts?(x)": [
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
       "prettier --parser=typescript --write"
     ]
   },
-  "author": "findzsh",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/findzsh/usehooks/issues"
-  },
-  "homepage": "http://findzsh.com/",
   "peerDependencies": {
-    "react": "^16.8.0 | ^17.0.0 | ^18.0.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^13.0.0",
-    "@types/jest": "^27.0.3",
-    "@umijs/fabric": "^2.8.1",
-    "@umijs/test": "^3.0.5",
-    "babel-plugin-import": "^1.13.6",
-    "dumi": "^1.1.0",
-    "father": "^4.0.0-rc.2",
-    "gh-pages": "^3.0.0",
-    "lint-staged": "^10.0.7",
-    "prettier": "^2.2.1",
-    "yorkie": "^2.0.0"
-  },
-  "dependencies": {
-    "antd": "^5.6.1",
-    "lodash": "^4.17.21"
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/lodash": "^4.17.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/lint": "^4.0.0",
+    "antd": "^5.16.2",
+    "dumi": "^2.2.13",
+    "eslint": "^8.23.0",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "lodash": "^4.17.21",
+    "powerful-hooks": "^1.1.5-beta",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "stylelint": "^14.9.1"
   }
 }

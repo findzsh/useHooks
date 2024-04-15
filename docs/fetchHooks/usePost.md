@@ -1,25 +1,26 @@
 ## usePost
 
 - usePost 用来发送 post 请求的 hook；
-- usePost 的返回包含三个常用参数：data，loading，run；
+- usePost 的返回包含三个常用参数：data，loading，run，abort（>=v1.1.15）；
 - usePut 和 useDelete 与 usePost 使用方法相同。
 
-```ts
+```tsx
 import React from 'react';
 import { usePost } from 'powerful-hooks';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 function testPage() {
   const {
-    data: testData,
+    data: resultData,
     loading: dataLoading,
     run: handleGetData,
+    abort: handleAbort
   } = usePost({
-    url: '/api/test',
+    url: '/api/test/post',
     data: {
       testData: 'testData',
     },
-    handler: (reponese) => {
+    handler: (responese) => {
       const { code, data, msg } = responese;
       if (code == 0) {
         return data;
@@ -27,21 +28,22 @@ function testPage() {
         message.error(msg);
       }
     },
-    manual: false,
+    manual: true,
   });
 
   const handleReGet = () => {
     const otherData = {
       test1: 'testData',
     };
-    run(otherData);
+    handleGetData(otherData);
   };
 
   return (
     <div>
       {dataLoading ? '加载中' : ''}
-      {testData ? JSON.stringfy(testData) : ''}
-      <Button onClick={handleReGet}>重新获取</Button>
+      {resultData ? JSON.stringify(resultData) : ''}
+      <Button onClick={handleReGet}>发起请求</Button>
+      <Button onClick={handleAbort}>终止请求</Button>
     </div>
   );
 }

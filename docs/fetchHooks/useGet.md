@@ -1,24 +1,25 @@
 ## useGet
 
 - useGet 用来发送 get 请求的 hook；
-- useGet 的返回包含三个常用参数：data，loading，run；
+- useGet 的返回包含四个常用参数：data，loading，run，abort（>=v1.1.15）；
 
-```ts
+```tsx
 import React from 'react';
 import { useGet } from 'powerful-hooks';
 import { Button, message } from 'antd';
 
 function testPage() {
   const {
-    data: testData,
+    data: resultData,
     loading: dataLoading,
     run: handleGetData,
+    abort: handleAbort
   } = useGet({
-    url: '/api/test',
+    url: '/api/test/get',
     data: {
       testData: 'testData',
     },
-    handler: (reponese) => {
+    handler: (responese) => {
       const { code, data, msg } = responese;
       if (code == 0) {
         return data;
@@ -26,21 +27,22 @@ function testPage() {
         message.error(msg);
       }
     },
-    manual: false,
+    manual: true,
   });
 
   const handleReGet = () => {
     const otherData = {
       test1: 'testData',
     };
-    run(otherData);
+    handleGetData(otherData);
   };
 
   return (
     <div>
       {dataLoading ? '加载中' : ''}
-      {testData ? JSON.stringfy(testData) : ''}
-      <Button onClick={handleReGet}>重新获取</Button>
+      {resultData ? JSON.stringify(resultData) : ''}
+      <Button onClick={handleReGet}>发起请求</Button>
+      <Button onClick={handleAbort}>终止请求</Button>
     </div>
   );
 }
@@ -66,3 +68,4 @@ export default testPage;
 | data    | Responese，如果 handler 有返回值的话，此处为 handler 返回值 | -      |
 | loading | 是否在请求中状态                                            | false  |
 | run     | 调用函数。此处可再传入参数，会和初始的 data 进行 merge      | -      |
+| abort   | 终止函数。可在请求完成前终止此次请求     | -      |

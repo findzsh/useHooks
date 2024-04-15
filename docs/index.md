@@ -1,13 +1,22 @@
 ---
-nav:
-  title: 简介
-  order: 1
-group:
-  title: 简介
-  order: 1
+hero:
+  title: powerful-hooks
+  description: More powerful React Hooks
+  actions:
+    - text: to github
+      link: https://github.com/findzsh/usehooks
+    - text: to npm
+      link: https://www.npmjs.com/package/powerful-hooks
+features:
+  - title: fetch
+    emoji: 🕸
+    description: fetch hooks
+  - title: state
+    emoji: 📚
+    description: state hooks
+  - title: effect
+    emoji: 🚀
+    description: effect hooks
 ---
 
-## 简介
-
-- 这是一个功能更强大的 React state hooks。
-- 可以帮助你在项目中更快捷方便的管理你的状态。
+powerful-hooks
