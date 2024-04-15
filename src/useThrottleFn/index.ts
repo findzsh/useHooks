@@ -1,6 +1,10 @@
 import { useRef } from 'react';
 
-const useThrottleFn = (fn: (...params: any[]) => any, wait: number, immediately?: boolean) => {
+const useThrottleFn = (
+  fn: (...params: any[]) => any,
+  wait: number,
+  immediately?: boolean,
+) => {
   let timeRef: ReturnType<typeof setTimeout>;
 
   let waitTime = wait ?? 300;
@@ -8,7 +12,7 @@ const useThrottleFn = (fn: (...params: any[]) => any, wait: number, immediately?
   const { current: cancel } = useRef(() => {
     clearTimeout(timeRef);
 
-    timeRef = 0;
+    timeRef = null;
   });
 
   const { current: throttledFn } = useRef(function (...args: any[]) {

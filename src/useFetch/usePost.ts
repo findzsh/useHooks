@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-import useFetch from './useFetch';
 import * as _ from 'lodash';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import costemFetch from './useFetch';
 
 function usePost<T>(
   params: {
@@ -15,8 +15,8 @@ function usePost<T>(
   const [responens, setResponens] = useState<T | undefined>();
   const [, useStatus] = useState(true);
 
-  const useUpdate = () => {
-    useStatus((status) => !!!status);
+  const update = () => {
+    useStatus((status) => !!!status); // eslint-disable-line
   };
 
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ function usePost<T>(
     setResponens(responens);
     setLoading(false);
     loadingRef.current = false;
-    useUpdate();
+    update();
   });
   const fetchInstanse = useRef<any>();
 
@@ -41,7 +41,7 @@ function usePost<T>(
     const { url = '', data = {}, headers = {}, handler } = params;
     setLoading(true);
     loadingRef.current = true;
-    useUpdate();
+    update();
     const { signal, controller } = handleNewController();
     fetchInstanse.current = controller;
     let options = {
@@ -55,29 +55,34 @@ function usePost<T>(
     let _data = Object.assign(Object.assign({}, data), newData);
     if (_data && Object.entries(_data).length) {
       if (_data.isform) {
+        // @ts-ignore
         options.body = '';
+        // @ts-ignore
         options.data = _data;
         options.headers = {
           ...headers,
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         };
       } else {
-        options.body = JSON.stringify(_.has(_data, 'isform') ? _.omit(_data, 'isform') : _data);
+        // @ts-ignore
+        options.body = JSON.stringify(
+          _.has(_data, 'isform') ? _.omit(_data, 'isform') : _data,
+        );
         options.headers = {
           ...headers,
           'Content-Type': 'application/json',
         };
       }
     }
-    useFetch({
+    costemFetch({
       url,
       options,
     });
   });
 
-  const handleAbort = useCallback(()=>{
+  const handleAbort = useCallback(() => {
     fetchInstanse.current?.abort();
-  },[fetchInstanse.current])
+  }, [fetchInstanse.current]);
 
   useEffect(() => {
     const { manual = false } = params;
@@ -94,7 +99,7 @@ function usePost<T>(
     data: responens,
     loading,
     run,
-    abort:handleAbort
+    abort: handleAbort,
   };
 }
 

@@ -1,13 +1,17 @@
 import { useRef } from 'react';
 
-const useDebounceFn = (fn: (...params: any[]) => any, wait?: number, immediately?: boolean) => {
+const useDebounceFn = (
+  fn: (...params: any[]) => any,
+  wait?: number,
+  immediately?: boolean,
+) => {
   let timeRef: ReturnType<typeof setTimeout>;
 
   const waitTime = wait ?? 300;
 
   const { current: cancel } = useRef(() => {
     clearTimeout(timeRef);
-    timeRef = 0;
+    timeRef = null;
   });
 
   const { current: debounceFn } = useRef(function (...args: any[]) {
