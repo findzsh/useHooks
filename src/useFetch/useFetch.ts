@@ -93,7 +93,7 @@ const useFetch = async (params) => {
       data = await response.text();
       // @ts-ignore
       result = handleResponse(
-        new Response(response.status, data),
+        new Response(response.status, data,data),
         _options.handler,
       );
     }
