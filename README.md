@@ -70,3 +70,14 @@ import { useThrottleState } from 'powerful-hooks';
 
 const [state, setState] = useThrottleState(initialValue, wait);
 ```
+
+```ts
+// float浮点数运算
+import { useFloat } from 'powerful-hooks';
+const { add, subtract, multiply, divide } = useFloat;
+
+add(0.1, 0.2, 0.3);       // 0.6
+subtract(0.3, 0.2);       // 0.1
+multiply(0.3,0.77);       // 0.231
+divide(0.3, 3);           // 0.1
+```

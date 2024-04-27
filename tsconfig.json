@@ -10,7 +10,9 @@
       "@@/*": [".dumi/tmp/*"],
       "powerful-hooks": ["src"],
       "powerful-hooks/*": ["src/*", "*"]
-    }
+    },
+    "target": "ES2015",
+    "moduleResolution":"Node"
   },
   "include": [".dumirc.ts", "src/**/*"]
 }
