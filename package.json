@@ -1,6 +1,6 @@
 {
   "name": "powerful-hooks",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "More powerful React Hooks",
   "keywords": [
     "react",
@@ -13,7 +13,7 @@
     "powerful",
     "powerful-hook"
   ],
-  "homepage": "http://findzsh.com/",
+  "homepage": "http://docs.findzsh.com/",
   "bugs": {
     "url": "https://github.com/findzsh/usehooks/issues"
   },
