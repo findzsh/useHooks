@@ -1,5 +1,5 @@
 import { useState, useRef, Dispatch, SetStateAction } from 'react';
-import useMerge from '../useMerge';
+import merge from '../useMerge';
 
 export default function useMemoState<T>(
   params: T | (() => T),
@@ -8,7 +8,7 @@ export default function useMemoState<T>(
   const [state, setState] = useState(initalState);
   const { current: resetState } = useRef((otherParams?: any) => {
     if (otherParams) {
-      setState(useMerge(initalState, otherParams));
+        setState(merge(initalState, otherParams));
     } else {
       setState(initalState);
     }
